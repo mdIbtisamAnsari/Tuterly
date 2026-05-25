@@ -9,8 +9,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<any>(null)
 
   useEffect(() => {
-    axios.get('https://randomuser.me//api')
-      .then(data => setUser(data.data))
+    axios.get('https://randomuser.me/api/?format=json')
+      .then(data => {setUser(data.data); console.log(data)})
       .catch(error => console.error('Error fetching user data:', error))
   }, [])
 
