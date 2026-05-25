@@ -10,9 +10,11 @@ const NavBar = () => {
 
   return (
     <>
+    <div>
     <div className='bg-blue-900 py-3 max-sm:py-2 px-5 flex items-center'>
       <img src="./logo.svg" alt="Logo" className='h-12 max-sm:h-10'/>
       <Link to="/" className='text-white hover:underline text-2xl'>Tuterly</Link>
+    </div>
     </div>
     </>
   )
