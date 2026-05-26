@@ -12,11 +12,11 @@ const NavBar = () => {
 
   return (
     <>
-      <div className='bg-gray-900 py-3 max-sm:py-2 px-5 flex items-center justify-between'>
+      <div className='bg-gray-900 py-3 max-sm:py-2 px-5 flex items-center justify-between sticky top-0'>
 
         <div className="flex items-center">
           <img src="./logo.svg" alt="Logo" className='h-12 max-sm:h-10' />
-          <Link to="/" className='text-white hover:underline text-2xl'>Tuterly</Link>
+          <Link to="/" className='text-white hover:underline text-2xl'>TuterLy</Link>
         </div>
 
         {(!isAuthPage) && (
@@ -38,12 +38,12 @@ const NavBar = () => {
             
             <Link to="/profile">
             
-            <span className='text-white text-lg font-bold bg-emerald-900 p-2 mr-2 rounded-full '>{user.results[0].name.first.split("")[0]}</span>
-            <span className='text-white text-lg font-bold'>{user.results[0].name.first}</span>
+            <span className='text-white text-lg font-bold bg-emerald-900 p-2 mr-2 rounded-full '>{user.name.split("")[0]}</span>
+            <span className='text-white text-lg font-bold'>{user.name}</span>
 
             </Link>
 
-            
+
             </>
           ) : (
             <>

@@ -2,4 +2,5 @@
 html{
     background: #001020;
     color: #fff;
+    user-select: none;
 }
