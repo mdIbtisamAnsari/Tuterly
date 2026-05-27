@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className='bg-gray-900 py-3 max-sm:py-2 px-5 flex items-center justify-between sticky top-0'>
+      <div className='bg-gray-900 py-3 max-sm:py-2 px-5 flex items-center justify-between sticky top-0 z-50'>
 
         <div className="flex items-center">
           <img src="./logo.svg" alt="Logo" className='h-12 max-sm:h-10' />
