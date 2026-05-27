@@ -80,7 +80,7 @@ const TimelineRow = ({ step, index }: { step: typeof steps[0]; index: number }) 
       >
         <div className="relative group w-full max-w-md">
           {/* Subtle background glow effect on hover */}
-          <div className="absolute -inset-1 bg-linear-to-r from-red-500 to-orange-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300 pointer-events-none"></div>
+          <div className="absolute -inset-1 bg-linear-to-r from-[#00FFB3] to-[#00FFB3] rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300 pointer-events-none"></div>
           <img
             src={step.image}
             alt={step.title}
@@ -94,12 +94,12 @@ const TimelineRow = ({ step, index }: { step: typeof steps[0]; index: number }) 
 
 export default function TutorJourney() {
   return (
-    <div className="relative max-w-6xl mx-auto px-6 py-24 sm:mt-45">
+    <div className="relative max-w-6xl mx-auto px-6 py-24">
       
       {/* CENTRAL DOWNSCALING WAVE VECTOR */}
       <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-20 hidden md:block z-0 pointer-events-none">
         <svg
-          className="w-full h-full text-red-500/80" 
+          className="w-full h-full text-[#00FFB3]" 
           preserveAspectRatio="none"
           viewBox="0 0 100 1000"
           fill="none"
