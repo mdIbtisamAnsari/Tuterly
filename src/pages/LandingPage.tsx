@@ -22,7 +22,7 @@ const LandingPage = () => {
                     animate={{ opacity: [0, 1], y: [20, 0] }}
                     transition={{ duration: 1 }}
                     className="absolute text-7xl font-semibold text-white text-center max-w-200">
-                    Welcome to <span className="bg-linear-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Tuterly</span>
+                    Welcome to Tuterly 
                 </motion.h1>
 
             </div>
