@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom"
-import { useContext } from "react"
-import { UserContext } from "../userContext.ts"
 import { motion } from "motion/react"
 import LandingPageAnim from "../components/LandingPageAnim.tsx"
 
 
 
-const LandingPage = () => {
+const LandingPage = ({ user }: { user: any }) => {
 
-    const { user } = useContext(UserContext)
 
 
     return (

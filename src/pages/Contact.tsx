@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
         e.preventDefault()
         setCurrentState('submitting')
         
-        await axios.post('http://localhost:3000/api/contact', formData)
+        await axios.post('/api/contact', formData)
             .then(
                 () => {setCurrentState('success')
                 alert('Form submitted successfully!')
@@ -54,9 +54,9 @@ const Contact: React.FC = () => {
     } 
 
     return (
-        <div className='border border-gray-700 rounded-lg m-auto p-4 max-md:w-[calc(100vw-2rem)] md:w-[calc(60vw-2rem)] mt-30 w'>
+        <div className='bg-gray-900 border border-gray-700 rounded-lg m-auto p-4 max-md:w-[calc(100vw-2rem)] md:w-[calc(60vw-2rem)] my-25'>
             <h1 className="text-5xl font-bold mb-4 text-center">Contact</h1>
-            <form className='*:flex *:flex-col *:*:not-first:border *:*:not-first:border-gray-700 *:*:not-first:rounded *:*:not-first:p-1.5 *:*:not-first:focus:border-gray-500' onSubmit={handleSubmit}>
+            <form className='*:flex *:flex-col *:*:not-first:border *:*:not-first:border-gray-700 *:*:not-first:rounded *:*:not-first:p-1.5 *:*:not-first:focus:border-gray-500 *:*:not-first:bg-gray-800' onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input type="text" id="name" name="name" required onChange={(e) => setFormData({...formData, name: e.target.value})} />

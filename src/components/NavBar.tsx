@@ -1,11 +1,9 @@
 //navbar component
-
-import { useContext } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { UserContext } from '../userContext'
 
-const NavBar = () => {
-  const { user } = useContext(UserContext)
+
+const NavBar = ({ user }: { user: any }) => {
+
   const location = useLocation()
 
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup'
