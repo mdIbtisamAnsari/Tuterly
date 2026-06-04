@@ -27,16 +27,17 @@ const TeacherCard: React.FC<{ teacher: Teacher }> = ({ teacher }) => {
                 {teacher.name}
             </h2>
 
-            <p 
+            <div 
             className='flex gap-1 my-2'>
-                {teacher.subjects.map((sub: string) => (
+                {teacher.subjects.map((sub: string, index: number) => (
 
                     <p 
+                    key={`${sub}-${index}`}
                     className='bg-gray-700 rounded-full px-2'>
                         {sub}
                     </p>
             ))}
-            </p>
+            </div>
 
             <p>
                 {teacher.bio.slice(0, 50)}...
