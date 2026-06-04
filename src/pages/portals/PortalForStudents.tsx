@@ -39,6 +39,7 @@ const PortalForTeacher: React.FC = () => {
             <div className=' sm:grid sm:grid-cols-2 lg:grid-cols-3 '>
 
                 {teachers.map((teacher: Teacher) => (
+                    
                     <TeacherCard key={teacher.id} teacher={teacher} />
 
                 ))}
