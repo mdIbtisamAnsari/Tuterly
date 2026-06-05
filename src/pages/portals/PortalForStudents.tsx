@@ -2,8 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { IoSearchOutline } from "react-icons/io5";
 import TeacherCard from '../../components/portalCards/TeacherCard'
+import { q } from 'motion/react-client';
 
-const PortalForTeacher: React.FC = () => {
+const PortalForStudents: React.FC = () => {
 
     interface Teacher {
         id: number;
@@ -16,30 +17,42 @@ const PortalForTeacher: React.FC = () => {
     }
 
     const [teachers, setTeachers] = useState<Teacher[] | []>([])
+
+
     const [searchQuary, setSearchQuary] = useState<string>('')
+    const [submitquary, setSubmitQuary] = useState<string>('')
+    
+
+
     const [sort , setSort] = useState<string>('')
 
+
+
+
     const handleSearch = () => {
-        axios.get(`/api/teachers?subject=${searchQuary}`)
-            .then(data => setTeachers(data.data))
-            .catch(error => console.error('Error fetching teacher data:', error))
+
+        setSubmitQuary(searchQuary)
+        
     }
 
     useEffect(()=>{
-        if(sort!==''){
-        axios.get(`/api/teachers?sort=${sort}`)
+        
+        axios.get(`/api/teachers`,
+            {
+                params:{
+                    subject: submitquary.toString(),
+                    sort: sort.toString()
+                }
+            }
+        )
             .then(data => setTeachers(data.data))
             .catch(error => console.error('Error fetching teacher data:', error))
-        }
-    },[sort])
-    
-    
+        
 
-    useEffect(() => {
-        axios.get('/api/teachers')
-            .then(data => setTeachers(data.data))
-            .catch(error => console.error('Error fetching teacher data:', error))
-    }, [])
+    },[sort , submitquary])
+
+
+
 
 
     return (
@@ -70,7 +83,7 @@ const PortalForTeacher: React.FC = () => {
                 value={sort}
                 onChange={(e) => setSort(e.target.value)}
                 className='bg-gray-700 text-white px-4 py-2 rounded-full'>
-                    <option value=''>Sort by...</option>
+                    <option value=''>Sort by..</option>
                     <option value='rate'>Rate</option>
                     <option value='experience'>Experience</option>
                 </select>
@@ -99,4 +112,4 @@ const PortalForTeacher: React.FC = () => {
     )
 }
 
-export default PortalForTeacher
+export default PortalForStudents
