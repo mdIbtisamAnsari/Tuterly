@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { IoSearchOutline } from "react-icons/io5";
 import TeacherCard from '../../components/portalCards/TeacherCard'
-import { q } from 'motion/react-client';
+
 
 const PortalForStudents: React.FC = () => {
 
