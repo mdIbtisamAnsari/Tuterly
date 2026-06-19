@@ -10,6 +10,9 @@ import Footer from "./components/footer.tsx"
 import PortalForStudents from "./pages/portals/PortalForStudents.tsx"
 import PortalForTeacher from "./pages/portals/PortalForTeacher.tsx"
 
+import MyTeacherProfile from "./pages/myProfile/MyTeacherProfile.tsx"
+import MyStudentProfile from "./pages/myProfile/MyStudentProfile.tsx"
+
 import { Routes, Route, Navigate } from "react-router-dom"
 
 
@@ -53,6 +56,23 @@ function App() {
             
           }
         />
+
+        <Route
+          path="/profile"
+          element= {
+            authLoading ? (
+              <div className="min-h-[40vh] flex items-center justify-center text-gray-500">
+                Loading user...
+              </div>
+            ) :
+             !user ? (
+              <Navigate to="/login" />
+            ): user.role === "student" ? (
+              <MyStudentProfile {...user}/>
+            ):(
+              <MyTeacherProfile {...user}/>
+            )
+          }/>
 
 
       </Routes>
