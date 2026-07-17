@@ -17,6 +17,8 @@ import { Routes, Route, Navigate } from "react-router-dom"
 
 
 import axios from "axios"
+import EditMyStudentProfilr from "./pages/editProfile/EditMyStudentProfilr.tsx"
+import EditMyTeacherProfile from "./pages/editProfile/EditMyTeacherProfile.tsx"
 
 function App() {
 
@@ -73,6 +75,26 @@ function App() {
               <MyTeacherProfile {...user}/>
             )
           }/>
+
+        <Route
+          path="/edit-profile"
+          element= {
+            authLoading ? (
+              <div className="min-h-[40vh] flex items-center justify-center text-gray-500">
+                Loading user...
+              </div>
+            ) :
+             !user ? (
+              <Navigate to="/login" />
+            ): user.role === "student" ? (
+              <EditMyStudentProfilr {...user}/>
+            ):(
+              <EditMyTeacherProfile {...user}/>
+            )
+          }/>
+
+
+
 
 
       </Routes>
