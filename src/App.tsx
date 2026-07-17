@@ -20,6 +20,11 @@ import axios from "axios"
 import EditMyStudentProfilr from "./pages/editProfile/EditMyStudentProfilr.tsx"
 import EditMyTeacherProfile from "./pages/editProfile/EditMyTeacherProfile.tsx"
 
+
+import ViewStudentProfile from "./pages/viewProfile/ViewStudentProfile.tsx"
+import ViewTeacherProfile from "./pages/viewProfile/ViewTeacherProfile.tsx"
+
+
 function App() {
 
   const [user, setUser] = useState<any>(null)
@@ -27,7 +32,7 @@ function App() {
 
   useEffect(()=>{
     axios.get(`/api/user`)
-      .then(data => {setUser(data.data); console.log(data.data)})
+      .then(data => {setUser(data.data)})
       .catch(error => console.error('Error fetching user data:', error))
       .finally(() => setAuthLoading(false))
     },[])
@@ -93,7 +98,36 @@ function App() {
             )
           }/>
 
-
+          <Route
+          path="/teacher/:id"
+          element={
+            authLoading ? (
+              <div className="min-h-[40vh] flex items-center justify-center text-gray-500">
+                Loading user...
+              </div>
+            ) : !user ? (
+              <Navigate to="/login" />
+            ):(
+              <ViewTeacherProfile />
+            )
+            
+          }
+          
+        />
+        <Route
+          path="/student/:id"
+          element={
+            authLoading ? (
+              <div className="min-h-[40vh] flex items-center justify-center text-gray-500">
+                Loading user...
+              </div>
+            ) : !user ? (
+              <Navigate to="/login" />
+            ):(
+              <ViewStudentProfile />
+            )
+            
+          }/>
 
 
 
